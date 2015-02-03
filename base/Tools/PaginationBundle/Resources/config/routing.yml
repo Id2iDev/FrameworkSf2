@@ -1,3 +1,0 @@
-pagination_homepage:
-    path:     /PaginationBundle
-    defaults: { _controller: PaginationBundle:Default:index }

@@ -1,8 +1,0 @@
-services:
-#    admin_lte.example:
-#        class: Id2i\Core\AdminLteBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
-parameters:
-  core:
-    menu_tools:
-      view : false

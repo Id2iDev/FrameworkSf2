@@ -1,9 +1,0 @@
-superadmin_droits:
-    path:     /
-    defaults: { _controller: "UserBundle:Droit:index" }
-
-superadmin_droits_update:
-    path:     /update
-    defaults: { _controller: "UserBundle:Droit:update" }
-    requirements: { _method: post|put }
-

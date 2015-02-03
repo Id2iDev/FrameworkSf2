@@ -1,6 +1,0 @@
-contact_form_homepage:
-    path:     /nous-contacter
-    defaults: { _controller: ContactFormBundle:Default:index }
-contact_form_envoyer:
-    path:     /nous-contacter/envoyer
-    defaults: { _controller: ContactFormBundle:Default:envoyer }

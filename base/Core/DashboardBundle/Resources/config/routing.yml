@@ -1,3 +1,0 @@
-dash_board_homepage:
-    path:     admin/
-    defaults: { _controller: DashBoardBundle:Default:index }

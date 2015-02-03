@@ -1,4 +1,0 @@
-multi_site_superadmin_multi_site:
-    resource: "@MultiSiteBundle/Resources/config/routing/site.yml"
-    prefix:   /superadmin/multi_site
-

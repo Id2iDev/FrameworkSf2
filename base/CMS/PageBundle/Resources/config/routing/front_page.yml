@@ -1,6 +1,0 @@
-
-gestion_page_show:
-    path:     /{id}/{slug}
-    defaults: { _controller: "PageBundle:Front:drawPage", slug: "without"  }
-    requirements:
-         slug: '(.*)'

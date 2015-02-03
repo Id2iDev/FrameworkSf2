@@ -1,3 +1,0 @@
-admin_lte_homepage:
-    path:     admin/{name}
-    defaults: { _controller: AdminLteBundle:Default:index }

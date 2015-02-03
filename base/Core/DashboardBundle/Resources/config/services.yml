@@ -1,4 +1,0 @@
-services:
-#    dash_board.example:
-#        class: Id2i\Core\DashboardBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

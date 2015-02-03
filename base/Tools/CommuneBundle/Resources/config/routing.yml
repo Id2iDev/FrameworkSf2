@@ -1,7 +1,0 @@
-commune_commune:
-    resource: "@CommuneBundle/Resources/config/routing/commune.yml"
-    prefix:   /commune
-
-commune_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: CommuneBundle:Default:index }

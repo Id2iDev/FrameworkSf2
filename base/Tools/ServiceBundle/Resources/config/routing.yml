@@ -1,3 +1,0 @@
-service_homepage:
-    path:     /ServiceBundle
-    defaults: { _controller: ServiceBundle:Default:index }

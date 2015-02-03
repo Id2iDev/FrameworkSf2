@@ -1,3 +1,0 @@
-{% for entity in entities %}
-    <li><a href="{{ url("gestion_page_show",{"id":entity.id,"slug":entity.seoUrl|trim}) }}">{{ entity.title }}</a></li>
-{% endfor %}
