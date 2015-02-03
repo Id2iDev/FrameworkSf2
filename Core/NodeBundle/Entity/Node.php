@@ -87,6 +87,11 @@ class Node implements IDocument
      * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
+    /**
+     * @var boolean
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    private $enabled;
 
     public function __construct()
     {
@@ -384,5 +389,36 @@ class Node implements IDocument
         $this->image = $this->getUploadDir()."/".$this->file->getClientOriginalName();
 
         $this->file = null;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Node
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+    /**
+     * is enabled
+     *
+     * @return boolean
+     */
+    public function isEnabled()
+    {
+        return $this->enabled? true: false;
+    }
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }
