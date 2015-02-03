@@ -4,3 +4,63 @@ core_homepage:
 fos_user_profile_show:
     path:     /
     defaults: { _controller: CoreBundle:Default:index }
+
+theme:
+    resource: "@ThemeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+placement:
+    resource: "@PlacementBundle/Resources/config/routing.yml"
+    prefix:   /
+
+node:
+    resource: "@NodeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+media:
+    resource: "@MediaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dash_board:
+    resource: "@DashBoardBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_lte:
+    resource: "@AdminLteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+multi_site:
+    resource: "@MultiSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tools_id2i:
+    resource: "@CommuneBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+#fos_user_profile:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /profil
+
+#fos_user_register:
+#    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+#    prefix: /inscription
+
+#fos_user_resetting:
+#    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+#    prefix: /redefinir-mot-de-passe
+
+#fos_user_change_password:
+#    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+#    prefix: /profil
+
+_imagine:
+    resource: .
+    type:     imagine
+#voir avalanche_imagine: dans le config.yml  pour la config des miniatures (a deplacer dans le themeBundle)
