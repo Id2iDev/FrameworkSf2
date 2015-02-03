@@ -1,6 +1,6 @@
 <?php
 
-namespace Id2i\Buisness\ThemeBundle\DependencyInjection;
+namespace Id2i\Tools\ThemeBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

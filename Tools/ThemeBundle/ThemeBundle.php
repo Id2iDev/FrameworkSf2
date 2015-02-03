@@ -1,6 +1,6 @@
 <?php
 
-namespace Id2i\Buisness\ThemeBundle;
+namespace Id2i\Tools\ThemeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

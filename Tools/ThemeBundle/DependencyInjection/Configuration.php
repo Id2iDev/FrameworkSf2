@@ -1,6 +1,6 @@
 <?php
 
-namespace Id2i\Buisness\ThemeBundle\DependencyInjection;
+namespace Id2i\Tools\ThemeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

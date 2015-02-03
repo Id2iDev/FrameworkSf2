@@ -1,6 +1,6 @@
 <?php
 
-namespace Id2i\Buisness\ThemeBundle\Controller;
+namespace Id2i\Tools\ThemeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
