@@ -1,0 +1,5 @@
+node_admin_node:
+    resource: "@NodeBundle/Resources/config/routing/admin_node.yml"
+    prefix:   /admin/node
+
+

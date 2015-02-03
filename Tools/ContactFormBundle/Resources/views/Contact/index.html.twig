@@ -1,0 +1,16 @@
+{% extends ':default:index.html.twig' %}
+{% block title %}{{ parent() }} Nous Contacter{% endblock %}
+
+
+{% trans_default_domain 'MremiContactBundle' %}
+
+{% block content %}
+    {{ form_start(form, {'action': path('mremi_contact_form')}) }}
+            <h1>{{ 'mremi_contact.form_title'|trans }}</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_widget(form) }}
+                </div>
+            </div>
+    {{ form_end(form) }}
+{% endblock content %}

@@ -1,0 +1,26 @@
+superadmin_media:
+    path:     /
+    defaults: { _controller: "MediaBundle:Media:index" }
+
+superadmin_media_new:
+    path:     /new
+    defaults: { _controller: "MediaBundle:Media:new" }
+
+superadmin_media_create:
+    path:     /create
+    defaults: { _controller: "MediaBundle:Media:create" }
+    requirements: { _method: post }
+
+superadmin_media_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MediaBundle:Media:edit" }
+
+superadmin_media_update:
+    path:     /{id}/update
+    defaults: { _controller: "MediaBundle:Media:update" }
+    requirements: { _method: post|put }
+
+superadmin_media_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MediaBundle:Media:delete" }
+    requirements: { _method: get|post|delete }

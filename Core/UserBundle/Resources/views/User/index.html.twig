@@ -1,0 +1,102 @@
+{% extends ':default:admin.html.twig' %}
+
+{% block title -%}
+    {{ "crud.user.title.master_title"|trans }}
+{% endblock %}
+
+{% block content -%}
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">{{ "crud.user.title.list"|trans }}</h3>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-xs-6"></div>
+                            <div class="col-xs-6 text-right">
+                                <a class="btn btn-success " href="{{ path('admin_utilisateurs_new') }}">
+                                    <i class="fa fa-plus"></i>{{ 'crud.user.btn.new'|trans }}
+                                </a>
+
+                                <a class="btn btn-info " href="{{ path('admin_utilisateurs_export_csv') }}"><i
+                                            class="fa fa-table "></i> {{ 'crud.user.btn.export_csv'|trans }}
+                                </a>
+                                <br/><br/></div>
+                        </div>
+                        <div class="row clearfix">
+                        <div class="col-md-12 filters clearfix">
+                            <form action="" method="POST">
+                                Filter :
+                            <span class="option">Activé <select name="filter_enabled">
+                                    <option value="-1"{% if app.session.get("user.filter_enabled",0) ==  -1 %} selected="selected" {% endif %}>-- Tous --</option>
+                                    <option value="1"{% if app.session.get("user.filter_enabled",0) ==  1 %} selected="selected" {% endif %}>Oui</option>
+                                    <option value="0"{% if  app.session.get("user.filter_enabled",0) == '0' %} selected="selected" {% endif %}>Non</option>
+                                </select>
+                            </span>
+                                <span class="option">, est dans le groupe <select name="filter_groups">
+                                        <option value="-1">-- Tous --</option>
+                                        {% for groupe in groupes %}
+                                            <option {% if app.session.get("user.filter_groups") ==  groupe.id %} selected="selected" {% endif %} value="{{ groupe.id }}">{{ groupe.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </span>
+                                <span class="option">
+                                    <button type="submit" name="filter_user" class="btn btn-default btn-xs" >filtrer</button>
+                                </span>
+                            </form>
+                        </div>
+
+
+                        </div>
+                        <table id="table_User" class="top10 table table-striped table-bordered table-hover no-footer"
+                               aria-describedby="table_user_info">
+                            <thead>
+                            <tr>
+                                <th>{{ "crud.user.field.id.libelle"|trans }}</th>
+                                <th>{{ "crud.user.field.username.libelle"|trans }}</th>
+                                <th>{{ "crud.user.field.email.libelle"|trans }}</th>
+                                <th class="dataTableSelectOption">{{ "crud.user.field.groups.libelle"|trans }}</th>
+                                <th>{{ "crud.user.field.lastlogin.libelle"|trans }}</th>
+                                <th class="dataTableActiveOption dataTableInactiveOption">{{ "crud.user.field.enabled.libelle"|trans }}</th>
+                                <th>{{ "crud.user.lastTh"|trans }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td>{{ entity.id }}</td>
+                                    <td>{{ entity.username }}</td>
+                                    <td>{{ entity.email }}</td>
+                                    <td>
+                                        <ul>
+                                            {%- for group in entity.groups -%}
+                                                <li>{{ group.name|trans }}</li>
+                                            {%- endfor -%}
+                                        </ul>
+                                    </td>
+                                    <td>{{ entity.lastlogin.format('d/m/Y H:i') }}</td>
+                                    <td>{%- if entity.enabled == 1 -%}{{ "crud.user.field.enabled._true"|trans }}{%- else -%}{{ "crud.user.field.enabled._false"|trans }}{%- endif -%}</td>
+                                    <td>
+                                        <a class="btn btn-info fa fa-edit"
+                                           href="{{ path('admin_utilisateurs_edit', { 'id': entity.id }) }}"
+                                           title="{{ "crud.user.btn.edit"|trans }}"></a>
+                                        <a class="btn btn-danger fa fa-trash confirm-delete"
+                                           href="{{ path('admin_utilisateurs_delete', { 'id': entity.id }) }}"
+                                           title="{{ "crud.user.btn.delete"|trans }}"></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

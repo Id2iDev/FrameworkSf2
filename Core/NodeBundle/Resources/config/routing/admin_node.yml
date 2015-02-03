@@ -1,0 +1,34 @@
+superadmin_node:
+    path:     /
+    defaults: { _controller: "NodeBundle:Node:index" }
+
+superadmin_node_show:
+    path:     /{id}/show
+    defaults: { _controller: "NodeBundle:Node:show" }
+
+superadmin_node_new:
+    path:     /new
+    defaults: { _controller: "NodeBundle:Node:new" }
+
+superadmin_node_create:
+    path:     /create
+    defaults: { _controller: "NodeBundle:Node:create" }
+    requirements: { _method: post }
+
+superadmin_node_new_child:
+    path:     /{id}/new
+    defaults: { _controller: "NodeBundle:Node:newChild" }
+
+superadmin_node_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NodeBundle:Node:edit" }
+
+superadmin_node_update:
+    path:     /{id}/update
+    defaults: { _controller: "NodeBundle:Node:update" }
+    requirements: { _method: post|put }
+
+superadmin_node_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NodeBundle:Node:delete" }
+    requirements: { _method: get|post|delete }

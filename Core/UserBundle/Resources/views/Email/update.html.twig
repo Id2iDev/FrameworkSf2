@@ -1,0 +1,21 @@
+Bonjour,{{ retour_ligne }}
+Votre compte à été {{ update_create }}  avec les informations suivantes :{{ retour_ligne }}
+{{ retour_ligne }}
+Identifiant : {{ user.username }}{{ retour_ligne }}
+Adresse mail : {{ user.email }}{{ retour_ligne }}
+Mot de passe : {{ password }}{{ retour_ligne }}
+Votre compte est activé : {{ actif_oui_non }}{{ retour_ligne }}
+{% if user.groups|length > 1 %}
+Vous faites partie des groupes :
+{% else %}
+Vous faites partie du groupe :{{ retour_ligne }}
+{% endif %}
+{% for group in user.groups %}
+    - {{ group.name }}{{ retour_ligne }}
+{% endfor %}
+{{ retour_ligne }}
+{{ retour_ligne }}
+A bientôt sur {% if retour_ligne == '' %}http://{{ site.domaine }}, {{ site.libelle }}{% else %}<a href="http://{{ site.libelle }}">{{ site.libelle }}</a>{% endif %}
+
+
+

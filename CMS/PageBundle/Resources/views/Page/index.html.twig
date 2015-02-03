@@ -1,0 +1,79 @@
+{% extends ':default:admin.html.twig' %}
+
+{% block title -%}
+    {{ "crud.page.title.master_title"|trans }}
+{% endblock %}
+
+{% block content -%}
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">{{ "crud.page.title.list"|trans }}</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="example2_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                    <div class="row">
+                        <div class="col-xs-6"></div>
+                        <div class="col-xs-6"><a class="btn btn-success fa fa-plus pull-right"
+                                                 href="{{ path('gestion_page_new') }}">
+                                {{ 'crud.page.btn.new'|trans }}
+                            </a>
+                            <br/><br/></div>
+                    </div>
+                    <table id="table_Page" class="table table-bordered table-hover"
+                           aria-describedby="table_page_info">
+                        <thead>
+                        <tr>
+                            <th>{{ "crud.page.field.id.libelle"|trans }}</th>
+                            <th>{{ "crud.page.field.title.libelle"|trans }}</th>
+                            <th>{{ "crud.page.field.resume.libelle"|trans }}</th>
+                            {#<th>{{ "crud.page.field.node.libelle"|trans }}</th>#}
+                            <th>{{ "crud.page.field.createdat.libelle"|trans }}</th>
+                            <th>{{ "crud.page.field.updatedat.libelle"|trans }}</th>
+                            <th>{{ "crud.page.field.auteur.libelle"|trans }}</th>
+                            <th>{{ "crud.page.field.active.libelle"|trans }}</th>
+                            <th>{{ "crud.page.field.seo.libelle"|trans }}</th>
+                            <th>{{ "crud.page.lastTh"|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ entity.id }}</td>
+                                <td>{{ entity.title }}</td>
+                                <td>{{ entity.resume }}</td>
+                                {#<td>{{ entity.node }}</td>#}
+                                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ entity.auteur }}</td>
+                                <td>{% if entity.active == 1 %}{{ "crud.page.field.active._true"|trans }}{% else %}{{ "crud.page.field.active._false"|trans }}{% endif %}</td>
+                                <td>
+                                    {% set seo = 0 %}
+                                    {% if entity.seoUrl is not null %}{% set seo = seo + 25 %}{% endif %}
+                                    {% if entity.seoDescription is not null %}{% set seo = seo + 25 %}{% endif %}
+                                    {% if entity.seoTitle is not null %}{% set seo = seo + 25 %}{% endif %}
+                                    {% if entity.seoKeywords is not null %}{% set seo = seo + 25 %}{% endif %}
+
+                                    {{ seo }} %
+                                </td>
+                                <td>
+                                    <a class="btn btn-info fa fa-edit"
+                                       href="{{ path('gestion_page_edit', { 'id': entity.id }) }}"
+                                       title="{{ "crud.page.btn.edit"|trans }}"></a>
+                                    <a class="btn btn-danger fa fa-trash confirm-delete"
+                                       href="{{ path('gestion_page_delete', { 'id': entity.id }) }}"
+                                       title="{{ "crud.page.btn.delete"|trans }}"></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

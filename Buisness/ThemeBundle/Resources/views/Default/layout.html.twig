@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+{% block title %}Default Theme{% endblock %}
+{% block body %}
+    <body>
+    {% block content %}{% endblock %}
+    </body>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets '@ThemeBundle/Resources/public/default/css/*.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@ThemeBundle/Resources/public/default/js/*.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts '@ThemeBundle/Resources/public/default/js/jquery_need/*.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,29 @@
+
+<div class="responsive-content" style="margin-top:10%; max-width:1024px;">
+    <div class="row top20">
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">Nouveau mot de passe</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request form-horizontal">
+                        <div>
+                            {% if invalid_username is defined %}
+                                <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+                            {% endif %}
+                            <label for="username">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}</label>
+                            <input type="text" id="username" name="username" required="required" />
+                        </div>
+                        <div >
+                            <input type="submit" class="btn btn-info" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

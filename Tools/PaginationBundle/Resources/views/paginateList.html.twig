@@ -1,0 +1,23 @@
+<nav>
+    <ul class="pagination">
+        {% if currentPage > 1 %}
+        <li>
+            <a href="{{ linkPage }}?{{ pageNameParameter }}={{ currentPage-1 }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% endif %}
+        {% for page in startPage..endPage %}
+            <li class="{% if currentPage == page %}active{% endif %}">
+                <a href="{{ linkPage }}?page={{ page }}">{{ page }}</a>
+            </li>
+        {%  endfor %}
+        {% if currentPage < endPage  %}
+        <li>
+            <a href="{{ linkPage }}?page={{ currentPage+1 }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

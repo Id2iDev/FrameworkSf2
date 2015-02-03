@@ -1,0 +1,30 @@
+gestion_page:
+    path:     /
+    defaults: { _controller: "PageBundle:Page:index" }
+
+gestion_page_show:
+    path:     /{id}/show
+    defaults: { _controller: "PageBundle:Page:show" }
+
+gestion_page_new:
+    path:     /new
+    defaults: { _controller: "PageBundle:Page:new" }
+
+gestion_page_create:
+    path:     /create
+    defaults: { _controller: "PageBundle:Page:create" }
+    requirements: { _method: post }
+
+gestion_page_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PageBundle:Page:edit" }
+
+gestion_page_update:
+    path:     /{id}/update
+    defaults: { _controller: "PageBundle:Page:update" }
+    requirements: { _method: post|put }
+
+gestion_page_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PageBundle:Page:delete" }
+    requirements: { _method: get|post|delete }

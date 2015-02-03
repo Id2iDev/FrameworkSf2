@@ -1,0 +1,49 @@
+services:
+#    multi_site.example:
+#        class: Id2i\Commerce\MultiSiteBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+#parameters: # pour les tests
+#  droits.multi_site:
+#      back:
+#        read: false
+#        new: false
+#        edit: false
+#        delete: false
+#      front:
+#        read: true
+#        new: true
+#        edit: true
+#        delete: true
+#  droits.multi_site2:
+#    back:
+#      read: false
+#      new: false
+#      edit: false
+#      delete: false
+#    front:
+#      read: true
+#      new: true
+#      edit: true
+#      delete: true
+#  droits.multi_site3:
+#    back:
+#      read: false
+#      new: false
+#      edit: false
+#      delete: false
+#    front:
+#      read: true
+#      new: true
+#      edit: true
+#      delete: true
+#  droits.multi_site4:
+#    back:
+#      read: false
+#      new: false
+#      edit: false
+#      delete: false
+#    front:
+#      read: true
+#      new: true
+#      edit: true
+#      delete: true

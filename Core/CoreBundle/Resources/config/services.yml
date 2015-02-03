@@ -1,0 +1,21 @@
+services:
+#securité controller
+  id2i_secure:
+    class:        Id2i\Core\CoreBundle\Services\Id2iSecure
+#securité dans twig
+  twig.extension.secure:
+    class: Id2i\Core\CoreBundle\Twig\Id2iSecureExtension
+    arguments: [@service_container, @security.context]
+    tags:
+      - { name: twig.extension }
+  twig.extension.multisite:
+    class: Id2i\Core\CoreBundle\Twig\Id2iMultiSiteExtension
+    arguments: [@doctrine.orm.entity_manager]
+    tags:
+      - { name: twig.extension }
+
+
+parameters:
+  droits.core:
+    menu_tools:
+      view : false

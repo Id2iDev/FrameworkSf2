@@ -1,0 +1,30 @@
+{%  extends ':default:index.html.twig' %}
+
+{%- block title -%}
+    {% if page.seoTitle is not null %}
+    {{ page.seoTitle }}
+        {% else %}
+        {{ page.title }}
+    {% endif %}
+{% endblock %}
+
+{%- block metaDescription -%}
+    {% if page.seoDescription is not null %}
+        {{ page.seoDescription }}
+    {% endif %}
+{% endblock %}
+{%- block metaKeywords -%}
+    {% if page.seoKeywords is not null %}
+        {{ page.seoKeywords }}
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="Responsive-content">
+<h1>{{ page.title }}</h1>
+  {%  autoescape false %}
+   {{ page.contenu }}
+    {%  endautoescape %}
+    </div>
+{% endblock %}

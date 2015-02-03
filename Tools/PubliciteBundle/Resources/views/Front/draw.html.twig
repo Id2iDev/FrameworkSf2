@@ -1,0 +1,10 @@
+{% if publicite is defined  and publicite is not null%}
+    {% if publicite.script != "" %}
+        {{ publicite.script }}
+    {% else %}
+        <a href="{{ publicite.urlCible }}" target="{{ publicite.attrTarget }}" title="{{ publicite.attrTitle }}">
+            {#@todo gerer les autres formats en  changeant le nom du filtre#}
+            <img src="{{ asset(publicite.image)|apply_filter('publicite_728x90') }}" class="image-responsive" />
+        </a>
+    {% endif %}
+{% endif %}

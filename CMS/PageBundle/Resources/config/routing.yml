@@ -1,0 +1,7 @@
+cms_gestion_page:
+    resource: "@PageBundle/Resources/config/routing/page.yml"
+    prefix:   /cms/page
+
+cms_page:
+    resource: "@PageBundle/Resources/config/routing/front_page.yml"
+    prefix:   /page

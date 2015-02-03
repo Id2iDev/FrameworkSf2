@@ -1,0 +1,43 @@
+{% extends ':default:index.html.twig' %}
+{% block title %}{{ parent() }} Nous Contacter{% endblock %}
+
+{% block content %}
+
+<h1>Nous contacter</h1>
+    {% set message %}
+    <div class="alert alert-success">
+        This is the HTML block that will be displayed after the user has submitted the form.
+    </div>
+    {% endset %}
+    {{ render(controller('C33sContactFormBundle:ContactForm:form', { 'use_ajax': true, 'success_message': message })) }}
+
+    {#<div class="row">#}
+        {#<div class="col-md-6">#}
+        {#{{ form_start(form) }}#}
+            {#&#123;&#35;<div class="row">&#35;&#125;#}
+                {#&#123;&#35;<div class="col-md-12">&#35;&#125;#}
+                    {#&#123;&#35;<div class="col-md-2">&#35;&#125;#}
+                        {#&#123;&#35;{{ form_label(form.nom) }}&#35;&#125;#}
+                        {#&#123;&#35;</div>&#35;&#125;#}
+                    {#&#123;&#35;<div class="col-md-5">&#35;&#125;#}
+                        {#&#123;&#35;{{ form_widget(form.nom) }}&#35;&#125;#}
+                    {#&#123;&#35;</div>&#35;&#125;#}
+                {#&#123;&#35;</div>&#35;&#125;#}
+                {#&#123;&#35;<div class="col-md-12">&#35;&#125;#}
+                    {#&#123;&#35;<div class="col-md-2">&#35;&#125;#}
+                        {#&#123;&#35;{{ form_label(form.prenom) }}&#35;&#125;#}
+                    {#&#123;&#35;</div>&#35;&#125;#}
+                    {#&#123;&#35;<div class="col-md-5">&#35;&#125;#}
+                        {#&#123;&#35;{{ form_widget(form.prenom) }}&#35;&#125;#}
+                    {#&#123;&#35;</div>&#35;&#125;#}
+                    {#&#123;&#35;</div>&#35;&#125;#}
+            {#&#123;&#35;</div>&#35;&#125;#}
+
+
+        {#{{ form_end(form) }}#}
+        {#</div>#}
+    {#</div>#}
+
+
+
+{% endblock %}

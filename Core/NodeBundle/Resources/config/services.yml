@@ -1,0 +1,12 @@
+services:
+#    node.example:
+#        class: Id2i\Core\NodeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+parameters:
+  droits.node:
+    back:
+      read_all: false
+      read_domain: false
+      new: false
+      edit: false
+      delete: false
