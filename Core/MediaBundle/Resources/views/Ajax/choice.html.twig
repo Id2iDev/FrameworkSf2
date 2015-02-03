@@ -207,7 +207,7 @@
             }
             $("select[data-use=media_select]").imagepicker();
         });
-    })
+    });
 
     {#$('#fileupload').fileupload({#}
         {#disableImageResize: /Android(?!.*Chrome)|Opera/#}
@@ -252,7 +252,7 @@
                 var res = data.result.files[0];
                 $("select#media_select_{{ id }}").prepend('<option data-img-src="'+res.thumbnailUrl+'" value="'+res.id+'">' + res.name + '</option>');
                 $("select[data-use=media_select]").imagepicker()
-            })
+            });
 
 
 
@@ -270,7 +270,7 @@
             });
 
 
-        })
+        });
 
         $('#fileupload').fileupload({
             disableImageResize: /Android(?!.*Chrome)|Opera/

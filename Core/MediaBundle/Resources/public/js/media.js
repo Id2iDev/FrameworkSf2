@@ -7,7 +7,7 @@ $(function () {
         ev.preventDefault();
 
         var target = $(this).attr("href");
-        var modal_id = $(this).attr('data-target')
+        var modal_id = $(this).attr('data-target');
         $(modal_id).modal("hide");
         $(modal_id + " .modal-content").html("");
         // load the url and show modal on success
@@ -33,7 +33,7 @@ $(function () {
         });
         $("#count_" + id).html(count);
         $('#mediaBundlePopup' + id).modal('hide')
-    })
+    });
     $(document).on("click", "button[data-close-media]", function () {
         var id = $(this).attr("data-close-media");
         $('#mediaBundlePopup' + id).modal('hide')
