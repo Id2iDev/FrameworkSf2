@@ -1,0 +1,13 @@
+user_superadmin_droits:
+    resource: "@UserBundle/Resources/config/routing/droit.yml"
+    prefix:   /superadmin/droits
+
+user_superadmin_groups:
+    resource: "@UserBundle/Resources/config/routing/groupes.yml"
+    prefix:   /superadmin/groupes
+
+user_admin_utilisateur:
+    resource: "@UserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/utilisateurs
+
+

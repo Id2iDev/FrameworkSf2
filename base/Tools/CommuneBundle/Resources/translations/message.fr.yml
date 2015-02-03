@@ -1,0 +1,19 @@
+crud:
+  commune:
+    btn:
+      create: enregister
+      update: enregister
+      back: retour
+    title:
+      master_title: CDJA Modification des coordonnées
+      edit: Edition du degustateur
+    msg:
+      success:
+        create: Enregistrement effectué.
+        update: Mise à jour effectuée.
+        delete: suppression effectuée.
+      error:
+        dbal:
+          create: Erreur lors de l'enregistrement
+          update: Erreur lors de la mise à jour
+          delete: Erreur lors de la suppression

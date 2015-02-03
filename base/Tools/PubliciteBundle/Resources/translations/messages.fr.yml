@@ -1,0 +1,47 @@
+publicite:
+  page:
+    menu:
+      libelle: Publicités
+crud:
+  publicite:
+    btn:
+      back: Retour à la liste
+      create: Enregistrer
+      delete: Supprimer
+      edit: Modifier
+      new: Ajouter
+      update: Mettre à jour
+    field:
+      titre:
+        libelle: Titre
+      urlcible:
+        libelle: Url
+      script:
+        libelle: Script
+      attrtarget:
+        libelle: Au clic
+      attrtitle:
+        libelle: Texte au survol
+      media:
+        libelle: Image
+      node:
+        libelle: Placement
+      active:
+        _false: Non
+        _true: Oui
+        libelle: Active
+      domaine:
+        libelle: Nom de domaine
+      theme:
+        libelle: Thème
+      id:
+        libelle: ID
+      libelle:
+        libelle: Libelle
+
+    lastTh: Action
+    title:
+      create: Ajout d'une publicite
+      list: Liste des publicités
+      master_title: Gestion des publicités
+      edit: Modification d'une publicité

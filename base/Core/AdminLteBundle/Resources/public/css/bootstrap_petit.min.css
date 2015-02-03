@@ -1,0 +1,110 @@
+body{font-size:11px;line-height: 1;}
+.tab-pane .panel-group:first-child{
+    margin-top:8px;
+}
+.fa{
+    font: normal normal normal 18px/1 FontAwesome;
+}
+.right-side > .content-header > h1 {
+    margin: 0;
+    font-size: 20px;
+}
+.sidebar .sidebar-menu > li > a {
+    padding: 5px 5px 5px 15px;
+    display: block;
+}
+.right-side > .content-header {
+    position: relative;
+    padding: 5px 15px 0px 20px;
+}
+.sidebar .sidebar-menu > li > a > .fa, .sidebar .sidebar-menu > li > a > .glyphicon, .sidebar .sidebar-menu > li > a > .ion {
+    width: 20px;
+    font-size: 16px;
+}
+.panel-body {
+    padding: 6px;
+}
+.panel-heading {
+    padding: 4px 6px;
+}
+.box .box-header > .fa, .box .box-header > .glyphicon, .box .box-header > .ion, .box .box-header .box-title {
+    display: inline-block;
+    padding: 6px;
+    margin: 0;
+    font-size: 14px;
+}
+.list-group {
+    margin-bottom: 0px;
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1;
+}
+.nav>li>a {
+    padding: 6px 8px;
+}
+.list-group-item {
+    padding: 3px;
+}
+.panel-title {
+    font-size: 13px;
+}
+.box .box-body {
+    padding-top: 0px;
+}
+.no-bold{
+    font-weight:normal;
+}
+.btn-droits-edit{
+    margin-top:-10px
+}
+td ul{
+    margin-bottom:0px;
+}
+.btn.btn-success.fa.fa-plus.pull-right{
+    margin-top:-8px;
+}
+.radio, .checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+input[type=radio], input[type=checkbox] {
+    margin: 2px 0 0;
+    line-height: normal;
+}
+.form-group {
+    margin-bottom: 0;
+}
+.radio label, .checkbox label {
+    min-height: 15px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    line-height: 16px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 4px;
+    line-height: 1;
+    vertical-align: initial;
+}
+button, input, optgroup, select, textarea {
+    margin: 2px;
+}
+.form-control {
+    height: 20px;
+    padding: 2px 7px;
+    font-size: 11px;
+}
+.form-horizontal .radio, .form-horizontal .checkbox {
+    min-height: 17px;
+}
+.form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+     padding-top: 1px;
+     padding-left: 2px;
+ }
+.btn-xs.fa{font-size:14px;}
+.btn-xs.btn-success.fa.fa-plus{font-size:12px;padding:3px;}
+.btn {
+    font-size: 11px;
+}

@@ -1,0 +1,53 @@
+{% extends ':default:admin.html.twig' %}
+
+    {% block header -%}
+    {{ parent() }}
+    {% endblock %}
+    {% block content -%}
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Path</th>
+                <td>{{ entity.path }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ entity.version }}</td>
+            </tr>
+            <tr>
+                <th>Originalname</th>
+                <td>{{ entity.originalName }}</td>
+            </tr>
+            <tr>
+                <th>Extension</th>
+                <td>{{ entity.extension }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ entity.type }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ entity.commentaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        
+    <li>
+        <a href="{{ path('superadmin_media_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

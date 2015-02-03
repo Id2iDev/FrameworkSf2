@@ -1,0 +1,34 @@
+admin_utilisateurs:
+    path:     /
+    defaults: { _controller: "UserBundle:User:index" }
+
+admin_utilisateurs_show:
+    path:     /{id}/show
+    defaults: { _controller: "UserBundle:User:show" }
+
+admin_utilisateurs_export_csv:
+    path:     /export/csv
+    defaults: { _controller: "UserBundle:User:exportCsv" }
+
+admin_utilisateurs_new:
+    path:     /new
+    defaults: { _controller: "UserBundle:User:new" }
+
+admin_utilisateurs_create:
+    path:     /create
+    defaults: { _controller: "UserBundle:User:create" }
+    requirements: { _method: post }
+
+admin_utilisateurs_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UserBundle:User:edit" }
+
+admin_utilisateurs_update:
+    path:     /{id}/update
+    defaults: { _controller: "UserBundle:User:update" }
+    requirements: { _method: post|put }
+
+admin_utilisateurs_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UserBundle:User:delete" }
+    requirements: { _method: get|post|delete }

@@ -1,0 +1,30 @@
+tools_publicite:
+    path:     /
+    defaults: { _controller: "PubliciteBundle:Publicite:index" }
+
+tools_publicite_show:
+    path:     /{id}/show
+    defaults: { _controller: "PubliciteBundle:Publicite:show" }
+
+tools_publicite_new:
+    path:     /new
+    defaults: { _controller: "PubliciteBundle:Publicite:new" }
+
+tools_publicite_create:
+    path:     /create
+    defaults: { _controller: "PubliciteBundle:Publicite:create" }
+    requirements: { _method: post }
+
+tools_publicite_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PubliciteBundle:Publicite:edit" }
+
+tools_publicite_update:
+    path:     /{id}/update
+    defaults: { _controller: "PubliciteBundle:Publicite:update" }
+    requirements: { _method: post|put }
+
+tools_publicite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PubliciteBundle:Publicite:delete" }
+    requirements: { _method: get|post|delete }

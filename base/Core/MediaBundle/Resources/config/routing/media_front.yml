@@ -1,0 +1,4 @@
+media_download:
+    path:     /media/download/{id}
+    defaults: { _controller: "MediaBundle:Media:download" }
+    requirements: { _method: get }

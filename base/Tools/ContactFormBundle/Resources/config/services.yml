@@ -1,0 +1,24 @@
+services:
+#    contact_form.example:
+#        class: Id2i\Tools\ContactFormBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+parameters:
+    droits.contact_form:
+        menu:
+            show: false
+        back:
+            show: false
+            add: false
+#           all_edit: false
+#           owner_edit: false
+#           all_delete: false
+#           owner_delete: false
+            edit: false
+            delete: false
+        front:
+            show: false
+            add: false
+            edit: false
+            delete: false
+
+

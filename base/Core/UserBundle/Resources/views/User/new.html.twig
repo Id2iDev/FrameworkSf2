@@ -1,0 +1,33 @@
+    {% extends ':default:admin.html.twig' %}
+{% form_theme form ':FormOverride:form.html.twig' %}
+
+    {% block title -%}
+    {{ "crud.user.title.master_title"|trans }}
+    {% endblock %}
+    {% block header -%}
+    {{ parent() }}
+    <ol class="breadcrumb">
+        <li>
+            <a class="btn btn-default" href="{{ path('admin_utilisateurs') }}">
+                {{ "crud.user.btn.back"|trans }}
+            </a>
+        </li>
+    </ol>
+    {% endblock %}
+
+    {% block content -%}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">{{ "crud.user.title.create"|trans }}</h3>
+                </div>
+                <div class="box-body">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</ul>
+    {% endblock %}

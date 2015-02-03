@@ -1,0 +1,30 @@
+superadmin_multi_site:
+    path:     /
+    defaults: { _controller: "MultiSiteBundle:Site:index" }
+
+superadmin_multi_site_show:
+    path:     /{id}/show
+    defaults: { _controller: "MultiSiteBundle:Site:show" }
+
+superadmin_multi_site_new:
+    path:     /new
+    defaults: { _controller: "MultiSiteBundle:Site:new" }
+
+superadmin_multi_site_create:
+    path:     /create
+    defaults: { _controller: "MultiSiteBundle:Site:create" }
+    requirements: { _method: post }
+
+superadmin_multi_site_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MultiSiteBundle:Site:edit" }
+
+superadmin_multi_site_update:
+    path:     /{id}/update
+    defaults: { _controller: "MultiSiteBundle:Site:update" }
+    requirements: { _method: post|put }
+
+superadmin_multi_site_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MultiSiteBundle:Site:delete" }
+    requirements: { _method: get|post|delete }

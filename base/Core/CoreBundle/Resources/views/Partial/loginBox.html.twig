@@ -1,0 +1,27 @@
+<div class="row">
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <div class="form-group-sm clearfix">
+        <div class="col-md-12">
+            <input type="text" id="username" name="_username" value="" class="form-control input-sm" required="required" placeholder="{{ 'security.login.username'|trans }}"/>
+        </div>
+    </div>
+    <div class="form-group-sm top5 clearfix">
+        <div class="col-md-12">
+            <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" class="form-control input-sm" required="required"/>
+        </div>
+
+    </div>
+
+    <div class="col-md-12 top5">
+        <div class="row">
+        <div class="col-md-6">
+        <a href="{{ url('p_register') }}" id="_register"/>{{ 'security.login.register'|trans }}</a>
+            </div>
+        <div class="col-md-6">
+        <input type="submit" id="_submit" name="_submit" class="btn btn-default btn-xs"
+               value="{{ 'security.login.submit'|trans }}"/></div>
+        </div>
+    </div>
+</form></div>

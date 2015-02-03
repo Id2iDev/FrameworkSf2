@@ -1,0 +1,24 @@
+services:
+    id2i.tools.datalist.filter:
+        class: Id2i\Tools\HTML\DatasListBundle\Service\DatasListFilterService
+        arguments: [@request]
+parameters:
+    droits.data_list:
+        menu:
+            show: false
+        back:
+            show: false
+            add: false
+#           all_edit: false
+#           owner_edit: false
+#           all_delete: false
+#           owner_delete: false
+            edit: false
+            delete: false
+        front:
+            show: false
+            add: false
+            edit: false
+            delete: false
+
+
