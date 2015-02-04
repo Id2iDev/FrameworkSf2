@@ -5,6 +5,9 @@
   "keywords": ["sf2","bundle"],
   "homepage": "htt://pobelle.com",
   "license": "MIT",
+  "autoload": {
+    "psr-0": {"Id2i\\": ""}
+  },
   "authors": [
     {
       "name": "Pierrick Pobelle",
