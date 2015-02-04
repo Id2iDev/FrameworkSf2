@@ -1,7 +1,7 @@
 {
   "name": "pkshetlie/FrameworkSf2",
   "type": "library",
-  "description": "Librairie pouyr utilisation perso",
+  "description": "Librairie pour utilisation perso",
   "keywords": ["sf2","bundle"],
   "homepage": "htt://pobelle.com",
   "license": "MIT",
@@ -23,7 +23,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0.0"
+      "dev-master": "master"
     }
   }
 }
