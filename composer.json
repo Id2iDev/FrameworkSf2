@@ -6,7 +6,9 @@
   "homepage": "htt://pobelle.com",
   "license": "MIT",
   "autoload": {
-    "psr-4": {"Id2i": ""}
+    "psr-4": {
+      "Id2i\\": ""
+    }
   },
   "authors": [
     {
