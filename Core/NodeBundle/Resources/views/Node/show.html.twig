@@ -1,4 +1,4 @@
-{% extends ':default:admin.html.twig' %}
+{% extends 'ThemeBundle:Default:admin.html.twig' %}
 
     {% block header -%}
     {{ parent() }}
@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-        
+
     <li>
         <a href="{{ path('superadmin_node_edit', { 'id': entity.id }) }}">
             Edit
