@@ -1,0 +1,26 @@
+{
+  "name": "pkshetlie/FrameworkSf2",
+  "type": "library",
+  "description": "Librairie pouyr utilisation perso",
+  "keywords": ["sf2","bundle"],
+  "homepage": "htt://pobelle.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pierrick Pobelle",
+      "email": "pierrick.pobelle@gmail.com"
+    },
+    {
+      "name": "Nicolas Pin",
+      "email": "n.pin@id2i.net"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.0"
+    }
+  }
+}
