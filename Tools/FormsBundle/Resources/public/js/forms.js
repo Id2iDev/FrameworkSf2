@@ -1,14 +1,14 @@
 $(document).on('change','.filterList', function(){
 
-    console.log("test");
-
     var $element = $(this);
     var id = $element.val();
-    var url = $element.data('url');
-    var params = $element.data('params');
-    var target = $element.data('target');
-
-    console.log("target : " + target);
+    var url = $element.attr('data-url');
+    var params = $element.attr('data-params');
+    var target = $element.attr('data-target');
+    var async = true;
+    if($element.attr('data-async') != undefined){
+        async = $element.attr('data-async');
+    }
 
     $.ajax({
         'url':url+"?id="+id,
@@ -18,7 +18,7 @@ $(document).on('change','.filterList', function(){
         'success': function(htmlOption){
             $(target).html(htmlOption);
         },
-        'async':false
+        'async':async
     });
 });
 
