@@ -26,7 +26,7 @@
     "simplethings/entity-audit-bundle": "0.*",
     "stof/doctrine-extensions-bundle": "~1.1@dev",
     "egeloen/ckeditor-bundle": "~2.0",
-    "blueimp/jquery-file-upload": "dev-master",
+    "blueimp/jquery-file-upload": "9.9.*",
     "avalanche123/imagine-bundle": "v2.1.2"
   },
   "extra": {
