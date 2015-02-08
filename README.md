@@ -1,8 +1,9 @@
 ##Framework Symfony 2.6
-=======================
 
 Ce framewok est principalement développé pour les besoins de mon entreprise, mais également pour mes projets persos.
+
 Il est composé de plusieurs parties divisées en plusieurs bundles:
+
 *CMS :
     *PageBundle _CMS simplifié (affichage de pages)_
 *Core:
