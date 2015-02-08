@@ -8,7 +8,7 @@ Il est composé de plusieurs parties divisées en plusieurs bundles:
 
 
 * CMS:
-    * PageBundle _CMS simplifié (affichage de pages)_
+    * [PageBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/CMS/PageBundle) _CMS simplifié (affichage de pages)_
 * Core:
     * AdminLteBundle _Interface de l'administration, prévu pour pouvoir etre remplacé_
     * CoreBundle _Sans lui rien ne fonctionne_
