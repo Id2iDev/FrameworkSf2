@@ -1,3 +1,0 @@
-document_vente_homepage:
-    path:     /DocumentVenteBundle
-    defaults: { _controller: DocumentVenteBundle:Default:index }
