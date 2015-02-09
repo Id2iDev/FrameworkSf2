@@ -1,3 +1,0 @@
-data_list_homepage:
-    path:     /DatasListBundle
-    defaults: { _controller: DatasListBundle:Default:index }

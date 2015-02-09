@@ -1,0 +1,6 @@
+services:
+    id2i.tools.datalist.filter:
+        class: Id2i\Tools\HtmlTemplating\DatasListBundle\Service\DatasListFilterService
+        arguments: [@request]
+
+
