@@ -4,8 +4,7 @@
 
 il vous faut ajouter le bundle à ``app/AppKernel.php``
 
-``
-    $bundles = array(
+``$bundles = array(
     
     ...
     
@@ -13,8 +12,7 @@ il vous faut ajouter le bundle à ``app/AppKernel.php``
     
     ...
     
-    );
-``
+    );``
 
 ##Utilisation
 
