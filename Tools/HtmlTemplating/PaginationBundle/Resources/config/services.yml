@@ -1,0 +1,4 @@
+services:
+    id2i.tools.pagination:
+        class: Id2i\Tools\HtmlTemplating\PaginationBundle\Service\Pagination
+        arguments: [@templating]
