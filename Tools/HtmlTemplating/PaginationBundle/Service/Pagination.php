@@ -27,45 +27,6 @@ class Pagination {
     public function __construct(EngineInterface $template){
         $this->template = $template;
     }
-
-    public function setLinkPage($linkPage){
-        $this->linkPage = $linkPage;
-        return $this;
-    }
-
-    public function setCountTotal($count = 0){
-        $this->countTotal = $count;
-
-        if($this->countInUse == 0){
-            $this->countInUse = $count;
-        }
-
-        return $this;
-    }
-    public function setCountInUse($count = 0){
-        $this->countInUse = $count;
-        return $this;
-    }
-
-    public function setCurrentPage($currentPage){
-        $this->currentPage = $currentPage;
-        return $this;
-    }
-
-    public function setDisplayPageMax($displayPageMax){
-        $this->displayPageMax = $displayPageMax;
-        return $this;
-    }
-
-    public function setDistancePage($distance){
-        $this->distancePage = $distance;
-    }
-
-
-    public function setPageParameterName($pageName){
-        $this->pageNameParameter = $pageName;
-    }
-
     /**
      * @param string $linkPage
      * @param int $currentPage
@@ -81,24 +42,60 @@ class Pagination {
         $this->setPageParameterName($pageNameParameter);
     }
 
-    public function getStartItem(){
-        $this->calculateAll();
-       return  $this->startItem;
-    }
-
-    public function getLimitItem(){
-        $this->calculateAll();
-        return $this->displayPageMax;
-    }
-
     public function renderListePage(){
-        return $this->template->render("PaginationBundle::paginateList.html.twig", array(
+        return $this->template->render("PaginationBundle:Template:paginateList.html.twig", array(
             'currentPage' => $this->currentPage,
             'startPage'=> $this->startPage,
             'endPage'=> $this->endPage,
             'linkPage'=> $this->linkPage,
             'pageNameParameter'=> $this->pageNameParameter,
         ));
+    }
+
+
+    public function setCountTotal($count = 0){
+        $this->countTotal = $count;
+
+        if($this->countInUse == 0){
+            $this->countInUse = $count;
+        }
+
+        return $this;
+    }
+
+    public function setCountInUse($count = 0){
+        $this->countInUse = $count;
+        return $this;
+    }
+
+
+
+    private function setLinkPage($linkPage){
+        $this->linkPage = $linkPage;
+        return $this;
+    }
+
+    private function setCurrentPage($currentPage){
+        $this->currentPage = $currentPage;
+        return $this;
+    }
+
+    private function setDisplayPageMax($displayPageMax){
+        $this->displayPageMax = $displayPageMax;
+        return $this;
+    }
+
+    private function setDistancePage($distance){
+        $this->distancePage = $distance;
+    }
+
+    private function setPageParameterName($pageName){
+        $this->pageNameParameter = $pageName;
+    }
+
+    public function getStartItem(){
+        $this->calculateAll();
+       return  $this->startItem;
     }
 
     private function calculateAll(){
@@ -128,5 +125,10 @@ class Pagination {
 
     private function calculatEndPage(){
         $this->endPage = $this->currentPage<($this->maxPage-$this->distancePage)?($this->currentPage+$this->distancePage):$this->maxPage;
+    }
+
+    public function getLimitItem(){
+        $this->calculateAll();
+        return $this->displayPageMax;
     }
 }
