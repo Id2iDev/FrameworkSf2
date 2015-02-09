@@ -34,12 +34,14 @@ class Id2iMultiSiteExtension extends \Twig_Extension
 
     public function getTheme($defaultTheme)
     {
+        echo "On change de theme ";
         $theme = explode(':',$defaultTheme);
 
         $domaine = $this->_em->getRepository("MultiSiteBundle:Site")->findOneBy(array("domaine" => $this->domaine));
         if (!$domaine) {
             return $defaultTheme;
         }
+        echo "theme trouvé";
         if($domaine->getTheme() !== null && $domaine->getTheme()!= ''){
             $theme[1] = $domaine->getTheme();
         }
