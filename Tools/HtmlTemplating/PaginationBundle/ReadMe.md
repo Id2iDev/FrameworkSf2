@@ -2,17 +2,21 @@
 
 ##Installation
 
-il vous faut ajouter le bundle à ``app/AppKernel.php``
+il faut ajouter le bundle au kernel :
 
-``$bundles = array(
-    
-    ...
-    
-    new Id2i\Tools\HtmlTemplating\PaginationBundle\PaginationBundle(),
-    
-    ...
-    
-    );``
+``` php
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Id2i\Tools\HtmlTemplating\PaginationBundle\PaginationBundle(),
+    );
+}
+```
+
 
 ##Utilisation
 
