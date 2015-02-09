@@ -25,8 +25,8 @@ Il est composé de plusieurs parties divisées en plusieurs bundles:
     * [ContactFormBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/ContactFormBundle) _Surcharge du bundle [mremi/ContactBundle](https://github.com/mremi/ContactBundle)_
     * [FormsBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/FormsBundle) _by Nicolas, je dois aller voir ce qu'il fait_
     * HtmlTemplating _by Nicolas, je dois aller voir ce qu'il fait_
-        * [PaginationBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/HtmlTemplating/PaginationBundle) _by Nicolas, je dois aller voir ce qu'il fait_
-        * [PaginationBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/HtmlTemplating/PaginationBundle) _by Nicolas, je dois aller voir ce qu'il fait_
+        * [DatasListBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/HtmlTemplating/DatasListBundle) _by Nicolas, je dois aller voir ce qu'il fait_
+        * [PaginationBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/HtmlTemplating/PaginationBundle) _Service gérant la pagination_
     * [PubliciteBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/PubliciteBundle) _un petit crud pour afficher des publicités_
     * [ServiceBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/ServiceBundle) _by Nicolas, je dois aller voir ce qu'il fait_
     * [ThemeBundle](https://github.com/pkshetlie/FrameworkSf2/tree/master/Tools/ThemeBundle) _gestionnaire de theme en fonction du projet_
