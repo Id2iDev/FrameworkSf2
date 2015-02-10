@@ -1,6 +1,9 @@
 <?php
 namespace Id2i\Tools\ServiceBundle\Service;
 
+use Exception;
+use stdClass;
+
 class CsvTreatment {
     private $titles = array();
     private $lines = array();
@@ -42,6 +45,12 @@ class CsvTreatment {
         fclose($file);
     }
 
+    private function removeFile($pathFileName){
+        if(file_exists($pathFileName)){
+            unlink($pathFileName);
+        }
+    }
+
     public function getBuffer(){
         if(empty($this->buffer)){
             $this->setBuffer();
@@ -49,10 +58,20 @@ class CsvTreatment {
         return $this->buffer;
     }
 
-    public function clearBuffer(){
-        $this->titles = array();
-        $this->lines = array();
-        $this->buffer = "";
+    private function setBuffer(){
+        if(!empty($this->titles)){
+            $this->buffer = implode($this->comaSeparator, $this->titles) . "\r\n";
+        }
+
+        foreach ($this->lines as $line){
+            $this->buffer .= implode($this->comaSeparator, $line)."\r\n";
+        }
+    }
+
+    public function getDatasFromFile($filePath, $parseHeader=false, $columnDelimiter = ";", $enclosure = '"', $lineDelimiter = "\r\n")
+    {
+        $this->setDatasFromFile($filePath, $parseHeader, $columnDelimiter, $enclosure, $lineDelimiter);
+        return $this->lines;
     }
 
     public function setDatasFromFile($filePath, $parseHeader=false, $columnDelimiter = ";", $enclosure = '"', $lineDelimiter = "\r\n")
@@ -76,10 +95,10 @@ class CsvTreatment {
         }
     }
 
-    public function getDatasFromFile($filePath, $parseHeader=false, $columnDelimiter = ";", $enclosure = '"', $lineDelimiter = "\r\n")
-    {
-        $this->setDatasFromFile($filePath, $parseHeader, $columnDelimiter, $enclosure, $lineDelimiter);
-        return $this->lines;
+    public function clearBuffer(){
+        $this->titles = array();
+        $this->lines = array();
+        $this->buffer = "";
     }
 
     public function getTitles(){
@@ -101,22 +120,6 @@ class CsvTreatment {
             $datas[] = $this->format2objectLine($line, $proprietiesName);
         }
         return $datas;
-    }
-
-    private function removeFile($pathFileName){
-        if(file_exists($pathFileName)){
-            unlink($pathFileName);
-        }
-    }
-
-    private function setBuffer(){
-        if(!empty($this->titles)){
-            $this->buffer = implode($this->comaSeparator, $this->titles) . "\r\n";
-        }
-
-        foreach ($this->lines as $line){
-            $this->buffer .= implode($this->comaSeparator, $line)."\r\n";
-        }
     }
 
     private function format2objectLine($datas, $proprietiesName){

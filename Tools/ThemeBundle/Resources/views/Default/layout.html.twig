@@ -1,21 +1,20 @@
-{% extends '::base.html.twig' %}
-{% block title %}Default Theme{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Default Theme{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    {% block metas %}{% endblock %}
+    <meta name="description" content="{% block seoDescription %}{% endblock %}"/>
+    <meta name="keywords" content="{% block seoKeywords %}{% endblock %}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
 {% block body %}
     <body>
     {% block content %}{% endblock %}
     </body>
 {% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets '@ThemeBundle/Resources/public/default/css/*.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-{% endblock %}
-
-
 {% block javascripts %}
-    {{ parent() }}
     {% javascripts '@ThemeBundle/Resources/public/default/js/*.min.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -23,3 +22,10 @@
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
+</html>
+
+
+
+
+
+
