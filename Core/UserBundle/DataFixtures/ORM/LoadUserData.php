@@ -5,9 +5,23 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Id2i\Core\UserBundle\Entity\Group;
 use Id2i\Core\UserBundle\Entity\User;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData implements FixtureInterface
+class LoadUserData implements FixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
     /**
      * {@inheritDoc}
      */
@@ -15,7 +29,8 @@ class LoadUserData implements FixtureInterface
     {
         $userAdmin = new User();
         $userAdmin->setUsername('admin');
-        $userAdmin->setEmail('admin@id2i.net');
+        $userAdmin->setEmail('admin@example.fr');
+        $userAdmin->setEnabled(true);
         $userAdmin->setPassword('admin');
         $password = $userAdmin->getPassword();
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($userAdmin);
@@ -24,18 +39,16 @@ class LoadUserData implements FixtureInterface
         $userAdmin->setLastLogin(new\DateTime());
         $userAdmin->setRegisterAt(new\DateTime());
 
-        $group = new Group();
-        $group->setName("Super-Administrateur");
+        $group = new Group("Super-Administrateur");
         $group->addRole('ROLE_SUPER_ADMIN');
+        $manager->persist($group);
         $userAdmin->addGroup($group);
 
-        $group = new Group();
-        $group->setName("Administrateur");
+        $group = new Group("Administrateur");
         $group->addRole('ROLE_ADMIN');
         $manager->persist($group);
 
-        $group = new Group();
-        $group->setName("Utilisateur");
+        $group = new Group("Utilisateur");
         $group->addRole('ROLE_USER');
         $manager->persist($group);
 

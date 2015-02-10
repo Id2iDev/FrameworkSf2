@@ -1,26 +1,20 @@
 {% extends 'ThemeBundle:Default:layout.html.twig'|changeTheme %}
 
-
-
-
-
+{% block title %}{{ parent() }}{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    {#{% stylesheets '@CoreBundle/Resources/public/css/*.css' filter='cssrewrite' %}#}
-    {#<link rel="stylesheet" href="{{ asset_url }}"/>#}
-    {#{% endstylesheets %}#}
+    {% stylesheets 'bundles/theme/default/css/*.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
 {% endblock %}
 
 
 {% block javascripts %}
     {{ parent() }}
-    {#{% javascripts '@ThemeBundle/Resources/views/'~(theme|lower)~'/js/*.min.js' %}#}
-    {#<script src="{{ asset_url }}"></script>#}
-    {#{% endjavascripts %}#}
-    {#{% javascripts '@CoreBundle/Resources/views/'~(theme|lower)~'//js/*.js' %}#}
-    {#<script src="{{ asset_url }}"></script>#}
-    {#{% endjavascripts %}#}
-    {#{% javascripts '@CoreBundle/Resources/views/'~(theme|lower)~'/js/jquery_need/*.min.js' %}#}
-    {#<script src="{{ asset_url }}"></script>#}
-    {#{% endjavascripts %}#}
+    {% javascripts '@ThemeBundle/Resources/public/default/js/*.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts '@ThemeBundle/Resources/public/default/js/jquery_need/*.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'ThemeBundle:Default:index.html.twig' %}
 
-{% block title %}Gestion utilisateur{% endblock %}
-
+{% block title %}{{ parent() }}Gestion utilisateur{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
 {% block content -%}
 
     {% block fos_user_content %}{% endblock %}

@@ -7,9 +7,9 @@
 
 
 
-{% block title %}Connexion utilisateur{% endblock %}
+{% block title %}{{ parent() }} - Connexion utilisateur{% endblock %}
 
-{% block fos_user_content %}
+{% block content %}
 
 {% if error %}
     <div class="col-md-4 col-md-offset-4 ">{{ error|trans({}, 'FOSUserBundle') }}</div>
@@ -40,4 +40,4 @@
         </div>
     </form>
 </div>
-        {% endblock fos_user_content %}
+        {% endblock %}
