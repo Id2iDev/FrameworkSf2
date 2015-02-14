@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
  * User controller.
  *
  */
-class UserController extends Controller
+class GroupeController extends Controller
 {
 
 
@@ -26,47 +26,18 @@ class UserController extends Controller
     {
 
         $user = $this->getUser();
-        if (true !== $access = $this->get('id2i_secure')->setUser($user)->can('user', 'back', 'read')) {
+        if (true !== $access = $this->get('id2i_secure')->setUser($user)->can('groupe', 'back', 'read')) {
             return $access;
         }
         $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
-        if ($request->getMethod() == 'POST') {
-            $post = $_POST;
-            if ($post['filter_enabled'] >= 0) {
-                $session->set('user.filter_enabled', $post['filter_enabled']);
-            }else{
-                $session->set('user.filter_enabled', -1);
-            }
-            if ($post['filter_groups'] >= 1) {
-                $session->set('user.filter_groups', $post['filter_groups']);
-            }else{
-                $session->set('user.filter_groups', false);
-            }
-        }
 
 
-        $queryB = $this->getDoctrine()->getManager()->createQueryBuilder()
-            ->select('u')
-            ->from('UserBundle:User', 'u')
-            ->join("u.groups", 'g');
 
-        if ($session->get('user.filter_groups', false) > 0  && $session->get('user.filter_enabled', false) !== false) {
-            $groupe = $em->getRepository('UserBundle:Group')->find($session->get('user.filter_groups'));
-
-            $queryB->andWhere('g.id = :group');
-            $queryB->setParameter('group', $groupe);
-        }
-        if ($session->get('user.filter_enabled', 0) >= 0) {
-            $queryB->andWhere('u.enabled = :enabled');
-            $queryB->setParameter('enabled', $session->get('user.filter_enabled',0));
-        }
-
-        $entities = $queryB->getQuery()->getResult();
         $groupes = $em->getRepository('UserBundle:Group')->findAll();
 
         return $this->render('UserBundle:User:index.html.twig', array(
-            'entities' => $entities, 'groupes' => $groupes
+            'groupes' => $groupes
         ));
     }
 

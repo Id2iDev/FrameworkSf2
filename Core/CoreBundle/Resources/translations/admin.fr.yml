@@ -1,0 +1,12 @@
+core:
+  btn:
+     back: Retour
+     create: Enregistrer
+     create_and_mail: Enregistrer et envoyer par mail
+     edit: Enregistrer
+     delete: Supprimer
+     new: Nouveau
+     update: Mettre à jour
+     update_and_mail: Mettre à jour et envoyer par mail
+
+  lastTh: Actions

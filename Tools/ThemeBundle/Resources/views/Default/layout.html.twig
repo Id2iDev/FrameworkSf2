@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Default Theme{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        {% stylesheets 'bundles/theme/default/css/*.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
     {% block metas %}{% endblock %}
     <meta name="description" content="{% block seoDescription %}{% endblock %}"/>
     <meta name="keywords" content="{% block seoKeywords %}{% endblock %}"/>
@@ -12,10 +16,17 @@
 {% block body %}
     <body>
     {% block content %}{% endblock %}
+    {% block javascripts %}
+        {% javascripts '@ThemeBundle/Resources/public/default/js/*.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@ThemeBundle/Resources/public/default/js/jquery_need/*.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
     </body>
 {% endblock %}
-{% block javascripts %}
-{% endblock %}
+
 </html>
 
 

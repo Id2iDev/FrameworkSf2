@@ -105,37 +105,4 @@ class Group extends BaseGroup
     {
         return $this->droits;
     }
-
-    /**
-     * Add sites
-     *
-     * @param \Id2i\Core\MultiSiteBundle\Entity\Site $sites
-     * @return Group
-     */
-    public function addSite(\Id2i\Core\MultiSiteBundle\Entity\Site $sites)
-    {
-        $this->sites[] = $sites;
-
-        return $this;
-    }
-
-    /**
-     * Remove sites
-     *
-     * @param \Id2i\Core\MultiSiteBundle\Entity\Site $sites
-     */
-    public function removeSite(\Id2i\Core\MultiSiteBundle\Entity\Site $sites)
-    {
-        $this->sites->removeElement($sites);
-    }
-
-    /**
-     * Get sites
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getSites()
-    {
-        return $this->sites;
-    }
 }

@@ -183,37 +183,4 @@ class User extends BaseUser
 
         return $datas;
     }
-
-    /**
-     * Add groups
-     *
-     * @param \Id2i\Core\UserBundle\Entity\Group $groups
-     * @return User
-     */
-    public function addGroup(\Id2i\Core\UserBundle\Entity\Group $groups)
-    {
-        $this->groups[] = $groups;
-
-        return $this;
-    }
-
-    /**
-     * Remove groups
-     *
-     * @param \Id2i\Core\UserBundle\Entity\Group $groups
-     */
-    public function removeGroup(\Id2i\Core\UserBundle\Entity\Group $groups)
-    {
-        $this->groups->removeElement($groups);
-    }
-
-    /**
-     * Get groups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGroups()
-    {
-        return $this->groups;
-    }
 }

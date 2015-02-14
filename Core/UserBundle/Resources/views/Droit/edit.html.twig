@@ -1,131 +1,106 @@
 {% extends 'ThemeBundle:Default:admin.html.twig' %}
+{% trans_default_domain "admin" %}
 
 {% block title -%}
     {{ "crud.droit.title.master_title"|trans }}
 {% endblock %}
+
 {% block header -%}
-        {{ parent() }}
-        <ol class="breadcrumb">
-            <li>
-                <a class="btn btn-default" href="{{ path('superadmin_droits') }}">
-                    {{ "crud.droit.btn.back"|trans }}
-                </a>
-            </li>
-        </ol>
-    {% endblock %}
-
-    {% block content -%}
-    <form action="{{ url("superadmin_droits_update") }}" method="post">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">{{ "crud.droit.title.edit"|trans({},'messages') }}</h3>
-                </div>
-                <div class="box-body clearfix">
-                    <div role="tabpanel">
-
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            {% set i = 0 %}
-                            {% for groupe in groupes %}
-        <li role="presentation" {% if i == 0 %}class="active"{% endif %}>
-            <a href="#groupe{{ groupe.id }}" aria-controls="home" role="tab"
-               data-toggle="tab">{{ groupe.name|trans }}</a>
+    {{ parent() }}
+    <ol class="breadcrumb">
+        <li>
+            <a class="btn btn-default" href="{{ path('superadmin_droits') }}">
+                {{ "core.btn.back"|trans }}
+            </a>
         </li>
-        {% set i = 1 %}
-    {% endfor %}
-                        </ul>
+    </ol>
+{% endblock %}
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            {% set i = 0 %}
-                            {% for groupe in groupes %}
-    <div role="tabpanel" class="tab-pane{% if i == 0 %} active{% endif %}" id="groupe{{ groupe.id }}">
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
-        {% set last_bundle = '' %}
-        {% set j = 0 %}
-        {% for droit in droits[groupe.id] %}
-            {% if last_bundle != droit.bundle %}
-                {% set last_bundle = droit.bundle %}
-                {% if j != 0 %}
+{% block content -%}
+    <form action="{{ url("superadmin_droits_update") }}" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">{{ "crud.droit.title.edit"|trans }}</h3>
                     </div>
-                    </div>
-                {% endif %}
-                {% set j = j + 1 %}
-                <div class="panel panel-default">
-                    {% set i = i + 1 %}
-                    {#{% if i%4 == 0 and not loop.last%}#}
-                        {#<button type="submit" name="edit" class="btn-info btn-xs pull-right btn" >{{ "crud.droit.btn.edit"|trans }}</button>#}
-                    {#{% endif %}#}
-                <div class="panel-heading" role="tab" id="heading{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}">
-                    <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                           href="#{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}"
-                           aria-expanded="false"
-                           aria-controls="{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}">
-                            {{ j }} - {{ (droit.bundle ~ ".libelle")|trans }}
-                        </a>
-                    </h4>
-
-
-                </div>
-
-                <div id="{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}"
-                     class="panel-collapse collapse" role="tabpanel" data-other-aria="{{ j }}" aria-expanded="false" aria-labelledby="heading{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}">
-            {% endif %}
-            <ul class="list-group">
-            {% for key,part_droit in droit.droits %}
-                    <li class="list-group-item"><b>{{ (droit.bundle ~"."~ key ~".libelle")|trans }}</b></li>
-                    {% for key2,value in part_droit  %}
-                        <li class="list-group-item">
-                            <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" {% if value == true %}checked="checked"{% endif %} id="{{  droit.bundle }}_{{ key }}_{{ key2 }}" name="droits[{{ groupe.id }}][{{  droit.bundle }}][{{ key}}][{{ key2 }}]" value="true" />
-                                            {{ (droit.bundle ~"."~ key ~"."~key2~".libelle")|trans }}
-                                        </label>
+                    <div class="box-body clearfix">
+                        <div role="tabpanel">
+                            <ul class="nav nav-tabs" role="tablist">
+                                {% set i = 0 %}
+                                {% for groupe in groupes %}
+                                    <li role="presentation" {% if i == 0 %}class="active"{% endif %}>
+                                        <a href="#groupe{{ groupe.id }}" aria-controls="home" role="tab"
+                                           data-toggle="tab">{{ groupe.name|trans }}</a>
+                                    </li>
+                                    {% set i = 1 %}
+                                {% endfor %}
+                            </ul>
+                            <div class="tab-content">
+                                {% set i = 0 %}
+                                {% for groupe in groupes %}
+                                <div role="tabpanel" class="tab-pane{% if i == 0 %} active{% endif %}" id="groupe{{ groupe.id }}">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        {% set last_bundle = '' %}
+                                        {% set j = 0 %}
+                                        {% for droit in droits[groupe.id] %}
+                                        {% if last_bundle != droit.bundle %}
+                                        {% set last_bundle = droit.bundle %}
+                                        {% if j != 0 %}
                                     </div>
+                                </div>
+                                {% endif %}
+                                {% set j = j + 1 %}
+                                <div class="panel panel-default">
+                                    {% set i = i + 1 %}
+                                    <div class="panel-heading" role="tab" id="heading{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                               href="#{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}"
+                                               aria-expanded="false"
+                                               aria-controls="{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}">
+                                                {{ j }} - {{ (droit.bundle ~ ".libelle")|trans }}
+                                            </a>
+                                        </h4>
+
+
+                                    </div>
+
+                                    <div id="{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}"
+                                         class="panel-collapse collapse" role="tabpanel" data-other-aria="{{ j }}" aria-expanded="false" aria-labelledby="heading{{ droit.bundle|replace('.','_') }}_{{ groupe.id }}">
+                                        {% endif %}
+                                        <ul class="list-group">
+                                            {% for key,part_droit in droit.droits %}
+                                                <li class="list-group-item"><b>{{ (droit.bundle ~"."~ key ~".libelle")|trans }}</b></li>
+                                                {% for key2,value in part_droit  %}
+                                                    <li class="list-group-item">
+                                                        <div class="form-group">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" {% if value == true %}checked="checked"{% endif %} id="{{  droit.bundle }}_{{ key }}_{{ key2 }}" name="droits[{{ groupe.id }}][{{  droit.bundle }}][{{ key}}][{{ key2 }}]" value="true" />
+                                                                    {{ (droit.bundle ~"."~ key ~"."~key2~".libelle")|trans }}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+
+
+                                            {% endfor %}
+                                        </ul>
+
+                                        {% endfor %}
+                                    </div>
+                                </div>
                             </div>
-                        </li>
-                    {% endfor %}
 
-
-            {% endfor %}
-            </ul>
-
-        {% endfor %}
-        </div>
-        </div>
-        </div>
-
-                    </div>
-
-    {% endfor %}
-                            </div>
                         </div>
-        <button type="submit" name="edit" class="btn-info pull-right btn btn-droits-edit" >{{ "crud.droit.btn.edit"|trans }}</button>
-    </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+                <button type="submit" name="edit" class="btn-info pull-right btn btn-droits-edit" >{{ "core.btn.edit"|trans }}</button>
+            </div>
         </div>
-
-    </div>
-
-        </div>
-    </div>
-        </form>
-    {% endblock %}
-    {% block javascripts %}
-        {{ parent() }}
-        <script>
-            $(function () {
-
-//                $('.collapse').on("show.bs.collapse",function(){
-//                    $('.collapse[data-other-aria="'+$(this).attr("data-other-aria")+'"]').collapse('show');
-//
-//                });
-            });
-
-        </script>
-    {% endblock %}
+    </form>
+{% endblock %}

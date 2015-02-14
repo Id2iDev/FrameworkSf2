@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends BaseController
 {
-    protected function authenticateUser(UserInterface $user, Response $response)
-    {
-        parent::authenticateUser($user, $response);
-    }
+//    protected function authenticateUser(UserInterface $user, Response $response)
+//    {
+//        parent::authenticateUser($user, $response);
+//    }
 
 
 }

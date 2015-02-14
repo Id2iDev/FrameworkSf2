@@ -1,0 +1,7 @@
+crud:
+  droit:
+    menu:
+      libelle: Droits
+  user:
+    menu:
+      libelle: Utilisateurs
