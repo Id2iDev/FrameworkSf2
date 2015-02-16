@@ -10,7 +10,21 @@ use FOS\UserBundle\Entity\User as BaseUser;
  *
  * @ORM\Table("utilisateur")
  * @ORM\Entity(repositoryClass="Id2i\Core\UserBundle\Entity\UserRepository")
- *
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\MappedSuperclass
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\AttributeOverrides({
+ *      @ORM\AttributeOverride(name="email",
+ *          column=@ORM\Column(
+ *              name     = "email"
+ *          )
+ *      ),
+ *      @ORM\AttributeOverride(name="emailCanonical",
+ *          column=@ORM\Column(
+ *              name     = "email_canonical"
+ *          )
+ *      )
+ * })
  */
 class User extends BaseUser
 {
@@ -182,38 +196,5 @@ class User extends BaseUser
         $datas[]= $this->getLastLogin()->format('d/m/Y H:i') ;
 
         return $datas;
-    }
-
-    /**
-     * Add groups
-     *
-     * @param \Id2i\Core\UserBundle\Entity\Group $groups
-     * @return User
-     */
-    public function addGroup(\Id2i\Core\UserBundle\Entity\Group $groups)
-    {
-        $this->groups[] = $groups;
-
-        return $this;
-    }
-
-    /**
-     * Remove groups
-     *
-     * @param \Id2i\Core\UserBundle\Entity\Group $groups
-     */
-    public function removeGroup(\Id2i\Core\UserBundle\Entity\Group $groups)
-    {
-        $this->groups->removeElement($groups);
-    }
-
-    /**
-     * Get groups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGroups()
-    {
-        return $this->groups;
     }
 }
