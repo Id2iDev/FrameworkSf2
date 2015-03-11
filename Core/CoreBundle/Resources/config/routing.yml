@@ -10,10 +10,6 @@ theme:
     resource: "@ThemeBundle/Resources/config/routing.yml"
     prefix:   /
 
-placement:
-    resource: "@PlacementBundle/Resources/config/routing.yml"
-    prefix:   /
-
 node:
     resource: "@NodeBundle/Resources/config/routing.yml"
     prefix:   /
